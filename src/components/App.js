@@ -8,7 +8,6 @@ export default class App extends React.Component {
     }
 
     handleThemeChange(val) {
-        // Set the 
         this.divRef.current.parentElement.classList.toggle('dark-mode', val);
     }
     render() {
