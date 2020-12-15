@@ -2,17 +2,25 @@ import React from 'react';
 import ThemeSwitcher from "../partials/ThemeSwitcher";
 
 export default class App extends React.Component {
+    constructor(props) {
+        super(props);
+        this.divRef = React.createRef();
+    }
 
+    handleThemeChange(val) {
+        // Set the 
+        this.divRef.current.parentElement.classList.toggle('dark-mode', val);
+    }
     render() {
         return (
-            <div className="app">
+            <div ref={this.divRef} className="app">
 
                 <div className="level header">
                     <div className="title-container">
                         <div className="morningscore-avatar"></div>
                         <h1 className="title">Dark Mode Challenge</h1>
                     </div>
-                    <ThemeSwitcher/>
+                    <ThemeSwitcher onClick={(val) => this.handleThemeChange(val)} />
                 </div>
 
 
